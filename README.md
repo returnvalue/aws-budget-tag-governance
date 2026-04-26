@@ -30,8 +30,7 @@ The system implements a multi-dimensional governance framework:
     ```bash
     terraform init
     terraform apply -auto-approve
-    
-```
+    ```
 
 ## Verification & Testing
 
@@ -41,24 +40,21 @@ To test the fleet-wide governance architecture:
     ```bash
     awslocal budgets describe-budgets --account-id 000000000000
     aws budgets describe-budgets --account-id 000000000000
-    
-```
+    ```
 
 2.  **Inspect Resource Group:**
     List the resources automatically captured by the "Production" group:
     ```bash
     awslocal resource-groups list-group-resources --group-name production-resource-fleet
     aws resource-groups list-group-resources --group-name production-resource-fleet
-    
-```
+    ```
 
 3.  **Confirm Tagging Compliance:**
     Verify the tags on the sample S3 bucket:
     ```bash
     awslocal s3api get-bucket-tagging --bucket sysops-governed-prod-data
     aws s3api get-bucket-tagging --bucket sysops-governed-prod-data
-    
-```
+    ```
 
 4.  **Monitor SNS Alerts (Conceptual):**
     In a real environment, you would subscribe your email or a Slack webhook to the \`sysops-governance-alerts\` topic to receive real-time budget notifications.
